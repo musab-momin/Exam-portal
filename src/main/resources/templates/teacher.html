@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Teacher</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/base.css}">
+    <link rel="stylesheet" th:href="@{/style/form.css}">
+</head>
+<body>
+    <header>
+        <nav class="nav-flex">
+            <div class="logo">
+                <a href="#">VE-portal</a>
+            </div>
+            <a href="#" class="humburger"><i class="fas fa-bars"></i></a>
+            <div class="header-links">
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/signin}">Login</a></li>
+                <li class="active"><a th:href="@{/register/teacher}">Register</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="back-btn">Back</a></li>
+            </div>
+        </nav>
+    </header>
+  
+    <section>
+        <div class="container">
+            <div class="message" th:if="${session.message}" th:classapeend="${session.message.type}">
+                <span th:text="${session.message.content}"></span>
+                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+            </div>
+            <form th:action="@{/save_teacher}" method="POST">
+                <h2>Sign Up</h2>
+                <div class="input-box">
+                    <input type="text" 
+                    required="required" 
+                    pattern="[a-zA-z]+" 
+                    title="Name should not contain numbers and special symbols"
+                    name="tName">
+                    <span>Name</span>
+                </div>
+                <div class="input-box">
+                    <input 
+                    type="Email" 
+                    required="required" 
+                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+" 
+                    title="invalid email"
+                    name="tEmail">
+                    <span>Email</span>
+                </div>
+                <div class="input-box policy">
+                    <input type="password" required="required" name="tPassword">
+                    <span>Password</span>
+                    <!-- <a href="#">Password Policy</a> -->
+                </div>
+                <div class="input-box">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <script>
+        const menuToggle = document.querySelector('.humburger');
+        const navigationToggle = document.querySelector('.header-links');
+        const backBtn = document.querySelector('.back-btn');
+        menuToggle.onclick = ()=>{
+            navigationToggle.classList.toggle('active');
+        }
+        backBtn.onclick = ()=>
+        {
+            alert
+            navigationToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!-- th:action="@{/save_teacher}" -->
+
+<!-- <form  method="POST">
+    <input type="text" name="tName" placeholder="enter your name"><br>
+    <input type="email" name="tEmail" placeholder="enter your email"><br>
+    <input type="password" name="tPassword" placeholder="enter your password"><br>
+    <button type="submit">register</button>
+</form> -->

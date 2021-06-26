@@ -1,0 +1,26 @@
+.paper-card:nth-child(1)
+{
+    margin-top: 0;
+}
+.paper-card
+{
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.paper-card .paper-card-head h3
+{
+    font-size: 1.7rem;
+    font-weight: 400;
+    padding: .5em .5em;
+}
+.paper-card .paper-card-body h5
+{
+    font-size: 1.6rem;
+    font-weight: 300;
+    padding: .5em 1em;
+}

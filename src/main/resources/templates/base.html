@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org" th:fragment="Layout(content)">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/base.css}">
+</head>
+<body>
+    <header>
+        <nav class="nav-flex">
+            <div class="logo">
+                <a href="#">VE-portal</a>
+            </div>
+            <a href="#" class="humburger"><i class="fas fa-bars"></i></a>
+            <div class="header-links">
+                <li class="active"><a th:href="@{/}">Home</a></li>
+                <li><a href="#video">Tutorial</a></li>
+                <li><a href="#"><button class="btn" onclick="construction()">About</button></a></li>
+                <li><a href="#"><button class="btn" onclick="construction()">contact</button></a></li>
+                <li><a href="#" class="back-btn">Back</a></li>
+            </div>
+        </nav>
+    </header>
+    <div th:replace="${content}">
+
+    </div>
+
+    <footer>
+        <p>&#169; Copy rights 2021</p>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.humburger');
+        const navigationToggle = document.querySelector('.header-links');
+        const backBtn = document.querySelector('.back-btn');
+        menuToggle.onclick = ()=>{
+            navigationToggle.classList.toggle('active');
+        }
+        backBtn.onclick = ()=>
+        {
+            navigationToggle.classList.toggle('active');
+        }
+        let construction = ()=>
+        {
+            alert("This is under construction");
+        }
+    </script>
+</body>
+</html>

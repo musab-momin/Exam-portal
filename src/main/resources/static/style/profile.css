@@ -1,0 +1,56 @@
+.profile-div
+{
+    width: 50%;
+    margin: 5em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    border-radius: 5px;
+    /* background: #ecf0f3; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.profile-div .info-div
+{
+    margin-left: 2em;
+    display: flex;
+    gap: 2em;
+
+}
+.profile-div .info-div h2
+{
+    font-size: 4rem;
+    margin: 1em 0;
+    padding-left: .5em;
+    font-weight: 700;
+    border-left: 5px solid #d9534f;
+}
+
+.profile-div .info-div h4
+{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.profile-div .info-div button
+{
+    width: 30%;
+    height: 40px;
+    margin: 3em 0;
+    background: #d9534f ;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-weight: 800;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px)
+{
+    .profile-div
+    {
+        width: 90%;
+        overflow: auto;
+    }
+}

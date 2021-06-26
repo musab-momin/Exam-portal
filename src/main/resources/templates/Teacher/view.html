@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thyemleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/teacherbase.css}">
+    <link rel="stylesheet" th:href="@{/style/view.css}">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title">
+                            <h2>VE-portal</h2>
+                        </span>
+                    </a>
+                </li>
+                <li style="background: rgba(25, 130, 190, 0.849);">
+                    <a th:href="@{/Teacher/home}">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/question}">
+                        <span class="icon"><i class="fas fa-plus"></i></span>
+                        <span class="title">Create Paper</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/profile}">
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <span class="title">profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/showpaper}">
+                        <span class="icon"><i class="fas fa-question-circle"></i></span>
+                        <span class="title">View Paper</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="card-section">
+                <div th:each="i: ${plist}" class="paper-card">
+                    <div class="paper-card-head">
+                        <a th:href="@{'/Teacher/answersheet/'+${i.pId}+'/'+${sid}}" 
+                        th:text="${i.pName}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const toggleMenu = () => {
+                let toggle = document.querySelector('.toggle');
+                let navigation = document.querySelector('.navigation');
+                let main = document.querySelector('.main');
+                toggle.classList.toggle('active');
+                navigation.classList.toggle('active');
+                main.classList.toggle('active');
+            }
+        </script>
+</body>
+</html>

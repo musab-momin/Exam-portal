@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/teacherbase.css}">
+    <link rel="stylesheet" th:href="@{/style/createpaper.css}">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title">
+                            <h2>VE-portal</h2>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/home}">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li style="background: rgba(25, 130, 190, 0.849);">
+                    <a th:href="@{/Teacher/question}">
+                        <span class="icon"><i class="fas fa-plus"></i></span>
+                        <span class="title">Create Paper</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/profile}">
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <span class="title">profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/showpaper}">
+                        <span class="icon"><i class="fas fa-question-circle"></i></span>
+                        <span class="title">View Paper</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/logout}">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div th:if="${session.message}" th:classappend="${session.message.type}">
+                <span th:text="${session.message.content}"></span>
+                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+            </div>
+            <div class="paper-div">
+                <form method = "POST" th:action="@{/teacher/create_paper}">
+                    <h2>Create Paper</h2>
+                    <div class="input-box">
+                        <input type="text" required="required" name="pName">
+                        <span>Subject Name</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" required="required">
+                        <span>Exam Duration</span>
+                    </div>
+                    <div class="input-box">
+                        <button type="submit">Create</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        const toggleMenu = ()=>
+        {
+            let toggle = document.querySelector('.toggle');
+            let navigation = document.querySelector('.navigation');
+            let main = document.querySelector('.main');
+            toggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+
+<form method="POST" th:action="@{/Teacher/processQuestion}" id="form1">
+    <input type="text" th:value="${currentPaperId}" 
+    name="currentPaperId"
+    >
+    <input type="text" name= "qName" placeholder="enter question" value="what is java">
+    <input type="text" name="option1" placeholder="option1" value="coffee bread">
+    <input type="text" name="option2" placeholder="option2" value="nothing">
+    <input type="text" name="option3" placeholder="option3" value="programming language">
+    <input type="text" name="option4" placeholder="option4" value="dish">
+    <br>
+    <!-- <button class="submitBtn">create paper</button> -->
+</form>
+
+
+<form method="POST" th:action="@{/Teacher/processQuestion}" id="form2">
+    <input type="text" th:value="${currentPaperId}" name="currentPaperId">
+    <input type="text" name= "qName" placeholder="enter question"
+    value="what is collection framework">
+    <input type="text" name="option1" placeholder="option1" value="wrapper class">
+    <input type="text" name="option2" placeholder="option2" value="interface">
+    <input type="text" name="option3" placeholder="option3" value="package to deal with collection object">
+    <input type="text" name="option4" placeholder="option4" value="It is not in java"><br>
+    <!-- <button class="submitBtn">create paper</button> -->
+</form>
+<button type="button" onclick="submit_all()">Main button</button>
+<script>
+    const submit_all = ()=>
+    {
+       
+        for(let i=0; i<document.forms.length; i++)
+        {
+            let form_data = new FormData(document.forms[i]);
+           console.log(document.forms[i]);
+           console.log(form_data);
+           fetch('/Teacher/processQuestion', {
+                method: 'POST',
+                body: form_data
+            }).then((response)=>{
+                return response.text();
+            }).then((data)=>{
+                console.log(data);
+            });
+
+        }
+       
+
+    }
+</script> -->

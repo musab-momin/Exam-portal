@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/style/base.css}">
+</head>
+<body>
+    <section class="main-section">
+        <div class="header-container">
+            <div class="content">
+                <h1>Virtual Exam Portal</h1>
+                <p>
+                    Welcome to exam portal here you can create virtual exam as per your need
+                    by just simply creating a account. Watch a tutorial video for more better understanding.
+                </p><br>
+                <div class="links-div">
+                    <a th:href="@{/signin}" class="btn draw-border">Teacher</a>
+                    <a th:href="@{/login/student}" class="btn draw-border">Student</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container tut-video" id="video">
+            <h2>User Guid Video</h2>
+            <video controls>
+                <source th:src="@{/videos/tutorial_videos.mp4}">
+            </video>
+        </div>
+    </section>
+
+    <footer>
+        <p>&#169; Copy rights 2021</p>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.humburger');
+        const navigationToggle = document.querySelector('.header-links');
+        const backBtn = document.querySelector('.back-btn');
+        menuToggle.onclick = ()=>{
+            navigationToggle.classList.toggle('active');
+        }
+        backBtn.onclick = ()=>
+        {
+            navigationToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

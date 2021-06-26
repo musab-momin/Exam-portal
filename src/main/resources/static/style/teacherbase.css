@@ -1,0 +1,288 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  font-size: 10px;
+}
+body
+{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  overflow-x: auto;
+}
+.dashboard
+{
+  position: relative;
+  width: 100%;
+}
+.navigation
+{
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: #003147;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active
+{
+  width: 60px;
+}
+.navigation ul
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.navigation ul li
+{
+  position: relative;
+  width: 100%;
+  list-style: none;
+}
+.navigation ul li:hover
+{
+  background: #045a81;
+}
+.navigation ul li:nth-child(1):hover
+{
+  background: transparent;
+}
+.navigation ul li:nth-child(1)
+{
+  margin-bottom: 20px;
+}
+.navigation ul li a
+{
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.navigation ul li a .icon
+{
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.navigation ul li a .title
+{
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  /* text-align: center; */
+  white-space: nowrap;
+}
+.icon .fas
+{
+  font-weight: 600;
+  font-size: 2rem;
+}
+/* main page  */
+.main
+{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #fff;
+  /* border: 2px solid crimson; */
+  transition: .5s;
+  overflow: auto;
+}
+.main.active
+{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+.toggle
+{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  /* background: crimson; */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  /* margin-right: -2em; */
+}
+.toggle .fas
+{
+  font-weight: 700;
+  font-size: larger;
+}
+
+.success
+{
+  width: 30%;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 1em;
+  background: rgba(0,0,0, 0.7);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 7px;
+}
+
+.success span
+{
+  font-size: 1.6rem;
+  padding: .5em 1em;
+  font-weight: 300;   
+}
+
+.error
+{
+  width: 30%;
+  min-width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1em;
+  background: rgba(0,0,0, 0.7);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 7px;
+}
+.error span
+{
+  font-size: 1.6rem;
+  padding: .5em 1em;
+  font-weight: 300;   
+}
+/* .toggle::before
+{
+  font-family: 'Font Awesome 5 Free';
+  content: "\f0c9";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 2.4rem;
+  text-align: center;
+  color: #111;
+} */
+.main .information
+{
+  width: 30%;
+  min-width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  color: #666;
+  /* border: 2px solid cornflowerblue; */
+}
+.main .information h3
+{
+  font-size: 1.7rem;
+  padding: .5em 1em;
+  font-weight: 300;   
+}
+/* tables section */
+.student-details
+{
+  position: relative;
+  /* border: 2px solid cornflowerblue; */
+  width: 90%;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  /* overflow: auto; */
+  overflow-x: auto;
+}
+.student-details .card-header h2
+{
+ font-size: 2.5rem;
+ font-weight: 500;
+ padding: .5em 0;
+}
+
+.student-details table
+{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  /* border: 2px solid black; */
+}
+.student-details table thead td
+{
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 15px 0;
+}
+.student-details table tbody tr,
+.student-details table thead tr
+{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.student-details table tbody tr:last-child
+{
+  border-bottom: none;
+}
+.student-details table tbody tr td
+{
+  font-size: 1.6rem;
+  font-weight: 300;
+  padding: 15px 0;
+}
+.student-details table tbody tr a
+{
+  text-decoration: none;
+  padding: 10px 10px;
+  background: crimson;
+  color: #fff;
+  border-radius: 30px;
+  letter-spacing: .1em;
+  /* border: 2px solid crimson; */
+}
+@media only screen and (max-width: 990px)
+{
+  .navigation
+  {
+      left: -300px;
+      z-index: 1000;
+  }
+  .navigation.active
+  {
+      left: 0;
+      width: 300px;
+  }
+  .main
+  {
+      width: 100%;
+      left: 0;
+  }
+  .main.active
+  {
+      width: calc(100% - 300px);
+      left: 300px;
+  }
+  .student-details table
+  {
+      width: 450px;
+  }
+  .success
+  {
+    width: 90%;
+  }
+  .error
+  {
+    width: 90%;
+  }
+}

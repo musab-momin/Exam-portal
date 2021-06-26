@@ -1,0 +1,140 @@
+.container
+{
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    /* border: 2px solid crimson; */
+}
+.container button
+{
+    width: 20%;
+    height: 40px;
+    background: crimson;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: .5em .5em;
+    font-size: 1.6rem;
+    border: 4px;
+    cursor: pointer;
+}
+.container form
+{
+    width: 70%;
+    /* height: 200px; */
+    margin: 4em auto;
+    background: #fff;
+    border: 2px solid #fff;
+    padding: 20px 40px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    /* border: 2px solid cornflowerblue; */
+    /* overflow: auto; */
+}
+.container form .input-box
+{
+    position: relative;
+    width: 100%;
+    height: 46px;
+    margin-bottom: 20px;
+    /* border: 2px solid cornflowerblue; */
+}
+.container form .input-box input
+{
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 46px;
+    background: transparent;
+    padding: .5em .5em;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    font-weight: 500;
+    outline: none;
+}
+
+.container form .radio
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* border: 2px solid crimson; */
+}
+.container form .single-option
+{
+    margin: 1em 0;
+    /* border: 2px solid cornflowerblue; */
+}
+
+/* .container form .single-option input[type='radio']
+{
+    position: relative;
+}
+*/
+.container form .single-option label
+{
+    /* position: absolute; */
+    font-size: 1.6rem;
+
+}
+
+.btn-container
+{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: auto; */
+    /* border: 2px solid crimson; */
+}
+.btn-container button
+{
+    width: 20%;
+    height: 40px;
+    margin: 2em 0;
+    background: #666;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: .5em .5em;
+    font-size: 1.6rem;
+    border: 4px;
+    cursor: pointer;
+}
+
+.information
+{
+    width: 30%;
+    min-width: 300px;
+    border: 2px solid sandybrown;
+    margin: 5em auto;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    color: #666;
+}
+
+@media only screen and (max-width: 990px) 
+{
+    .container form
+    {
+        width: 90%;
+        padding: 50px 10px;
+        height: 450px;
+    }
+    .container form .input-box
+    {
+        width: 100%;
+    }
+    .container form .radio
+    {
+        flex-direction: column;
+    }
+    .container form .radio label
+    {
+        flex-direction: column;
+    }
+} 

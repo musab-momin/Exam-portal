@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/teacherbase.css}">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title">
+                            <h2>VE-portal</h2>
+                        </span>
+                    </a>
+                </li>
+                <li style="background: rgba(25, 130, 190, 0.849);">
+                    <a th:href="@{/Teacher/home}">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/question}">
+                        <span class="icon"><i class="fas fa-plus"></i></span>
+                        <span class="title">Create Paper</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/profile}">
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <span class="title">profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/Teacher/showpaper}">
+                        <span class="icon"><i class="fas fa-question-circle"></i></span>
+                        <span class="title">View Paper</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/logout}">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <div class="information">
+                <!-- <h3>Name: Suchita</h3>
+                <h3>Email: suchita344@gmail.com</h3> -->
+                <h3 th:text="'Class Code: '+${activeRoom.classCode}"></h3>
+            </div>
+            <div class="student-details">
+                <div class="table-container">
+                    <div class="card-header">
+                        <h2>You'r Students</h2>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Email</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="i: ${relatedStudents}">
+                                <td th:text=${i.sName}></td>
+                                <td th:text=${i.sEmail}></td>
+                                <td><a th:href="@{'/Teacher/view/'+${i.sId}}">View</a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const toggleMenu = ()=>
+        {
+            let toggle = document.querySelector('.toggle');
+            let navigation = document.querySelector('.navigation');
+            let main = document.querySelector('.main');
+            toggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+    </script>
+   
+</body>
+</html>
+
+
+// <!-- 
+// <h1>Welcome Teacher's Home page....</h1>
+// <ul>
+//     <li th:each="i: ${relatedStudents}">
+//         <a th:href="@{'/Teacher/answersheet/'+${i.sId}}" th:text="${i.sName}"></a>
+//     </li>
+// </ul>
+
+// <div class="container">
+//     <h1>Create new paper</h1>
+//     <form method="POST" th:action="@{/teacher/create_paper}">
+//         <input type="text" name="pName" placeholder="enter paper name">
+//         <button type="submit">create</button>
+//     </form>
+
+// </div>
+
+// <div class="container">
+//     <a th:href="@{/Teacher/showpaper}">show papers</a>
+// </div> -->

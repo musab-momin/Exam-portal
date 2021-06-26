@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/teacherbase.css}">
+    <link rel="stylesheet" th:href="@{/style/examhall.css}">
+</head>
+
+<body>
+    <!-- <div class="dashboard">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title">
+                            <h2>VE-portal</h2>
+                        </span>
+                    </a>
+                </li>
+                <li style="background: rgba(25, 130, 190, 0.849);">
+                    <a th:href="@{/student/home}">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/student/profile}">
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <span class="title">profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-question-circle"></i></span>
+                        <span class="title">help</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/student/logout}">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+        <div class="main">
+            <!-- <div class="toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div> -->
+            <div class="container">
+                <div class="information" th:if="${questionList.empty}">
+                    <h3>There is no question are for this subject!</h3>
+                </div>
+                <form th:action="@{/student/savepaper}" method="POST" th:each="i: ${questionList}">
+                    <input type="text" th:value="${currentPaperId}" name="paperId" hidden='true'><br>
+                    <div class="input-box">
+                        <input type="text" required="required" 
+                        th:value="${i.qName}" name="questionName" readonly>
+                    </div>
+                        <div class="radio">
+                            <div class="single-option">
+                                <input type="radio" name="ans" id="option1"  th:value="${i.option1}" required="required" >
+                                <label for="option1" th:text="${i.option1}"></label>
+                            </div>
+                            <div class="single-option">
+                                <input type="radio" name="ans" id="option2"  th:value="${i.option2}" required="required" >
+                                <label for="option2" th:text="${i.option2}"></label>
+                            </div>
+                            <div class="single-option">
+                                <input type="radio" name="ans" id="option3"  th:value="${i.option3}" required="required" >
+                                <label for="option3" th:text="${i.option3}"></label>
+                            </div>
+                            <div class="single-option">
+                                <input type="radio" name="ans" id="option4"  th:value="${i.option4}" required="required" >
+                                <label for="option1" th:text="${i.option4}"></label>
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="btn-container" th:if="${not questionList.empty}">
+                <button onclick="submit_all()">Submit</button>
+            </div>
+        </div>
+        <script>
+            const toggleMenu = ()=>
+            {
+                let toggle = document.querySelector('.toggle');
+                let navigation = document.querySelector('.navigation');
+                let main = document.querySelector('.main');
+                toggle.classList.toggle('active');
+                navigation.classList.toggle('active');
+                main.classList.toggle('active');
+            }
+    
+        
+        </script>
+        <script src="/script/exam_hall.js"></script>
+</body>
+</html>

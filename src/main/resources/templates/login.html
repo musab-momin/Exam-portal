@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style/base.css}">
+    <link rel="stylesheet" th:href="@{/style/form.css}">
+</head>
+<body>
+    <header>
+        <nav class="nav-flex">
+            <div class="logo">
+                <a href="#">VE-portal</a>
+            </div>
+            <a href="#" class="humburger"><i class="fas fa-bars"></i></a>
+            <div class="header-links">
+                <li ><a th:href="@{/}">Home</a></li>
+                <li  class="active"><a href="#">Login</a></li>
+                <li><a th:href="@{/register/student}">Register</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="back-btn">Back</a></li>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <div class="message" th:if="${session.message}" th:classapeend="${session.message.type}">
+                <span th:text="${session.message.content}"></span>
+                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+            </div>
+            <form th:action="@{/process_login}" method="POST">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <input 
+                    type="Email" 
+                    required="required" 
+                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+" 
+                    title="invalid email"
+                    name="studentemail">
+                    <span>Email</span>
+                </div>
+                <div class="input-box policy">
+                    <input type="password" required="required" name="studentpassword">
+                    <span>Password</span>
+                    
+                </div>
+                <div class="input-box">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="input-box">
+                   <p>Don't have an account   <a th:href="@{/register/student}">register  here!</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    
+    <script>
+        const menuToggle = document.querySelector('.humburger');
+        const navigationToggle = document.querySelector('.header-links');
+        const backBtn = document.querySelector('.back-btn');
+        menuToggle.onclick = ()=>{
+            navigationToggle.classList.toggle('active');
+        }
+        backBtn.onclick = ()=>
+        {
+            alert
+            navigationToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+<!-- 
+
+<form method="POST" th:action="@{/process_login}">
+    <input type="email" name="studentemail" placeholder="enter your email">
+    <input type="password" name="studentpassword" placeholder="enter your password">
+    <button type="submit">Login</button>
+</form> -->
