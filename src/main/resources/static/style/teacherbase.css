@@ -181,7 +181,7 @@ body
   width: 30%;
   min-width: 300px;
   margin: 0 auto;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: #666;
   /* border: 2px solid cornflowerblue; */
 }
@@ -243,13 +243,18 @@ body
 }
 .student-details table tbody tr a
 {
-  text-decoration: none;
-  padding: 10px 10px;
-  background: crimson;
-  color: #fff;
-  border-radius: 30px;
-  letter-spacing: .1em;
+ ext-decoration: none;
+ padding: 8px 1.5em;
+ background: #d9534f;
+ color: #fff;
+ border-radius: 30px;
+ letter-spacing: .1em;
+ border: none;
+ font-size: 14px;
+ transition: all .3s linear;
+ text-decoration: none;
   /* border: 2px solid crimson; */
+  cursor: pointer;
 }
 @media only screen and (max-width: 990px)
 {

@@ -1,5 +1,9 @@
+let toaster;
+let toasterMssg;
 window.onload = ()=>
 {
+    toaster = document.querySelector(".toaster");
+    toasterMssg = document.getElementById("toaster-mssg");
     document.onkeydown = function (e) {
         return false;
     }
@@ -31,14 +35,24 @@ const submit_all = ()=>
                         let executed = false;
                         if(data=='success')
                         {
-                            alert('Submitted successfully.....');
-                            window.location.assign('/student/home');
+                            if(!toaster.classList.contains("success")){
+                                toasterMssg.innerHTML = "Paper Submitted Successfully!";
+                                toaster.classList.remove("danger");
+                                toaster.classList.add("success");
+                            }
                         }
                         else
                         {
-                            alert('you already given this exam....!');
-                            window.location.assign('/student/home');
+                            if(!toaster.classList.contains("danger")){
+                                toasterMssg.innerHTML = "You Already Given This Paper";
+                                toaster.classList.remove("success");
+                                toaster.classList.add("danger");
+                            }
                         }
+                         const timeOut = setTimeout(()=>{
+                            window.location.assign('/student/home');
+                           }, 3000);
+                        clearTimeOut(timeOut);
                     });
                 }
             };

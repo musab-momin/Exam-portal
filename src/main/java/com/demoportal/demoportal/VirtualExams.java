@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoportalApplication 
+public class VirtualExams
 {
 	public static void main(String[] args) 
 	{
-		SpringApplication.run(DemoportalApplication.class, args);
+		SpringApplication.run(VirtualExams.class, args);
 	}
 
 }

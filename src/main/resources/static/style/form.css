@@ -75,7 +75,7 @@
   font-weight: 300;
   color: #fff;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
   outline: none;
 }
@@ -99,10 +99,10 @@
   text-align: center;
   margin: 5em auto;
   padding: 1em;
-  background: #333;
+  background: #5cb85c;
   border-radius: 10px;
   color: #fff;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .container .alert-danger span
